@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liquid+</title>
+  <meta property="og:title" content="Liquid+">
+  <meta name="description" content="For you to use however you like.<br />Share them as links or export as PDF.">
+  <meta property="og:image" content="images/invoice.jpg">
+  <meta name="twitter:card" content="/invoice.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='white'/><path d='M35 50H65M50 35V65' stroke='black' stroke-width='10' stroke-linecap='round'/></svg>">
+</head>
+<body>
+  <link rel="stylesheet" href="styles.css">
+  <div id="__nuxt">
+    <div class="view-split theme theme-light" data-v-4f31a168="" data-v-495c3469="">
+      <!-- Preview Container (Left Side) -->
+      <div class="preview-container" id="preview-container">
+        <div class="invoice-preview" id="invoice-preview">
+          <div class="preview-content">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+              <h3 id="preview-invoice-number" class="invoice-number" style="font-size: 40px; margin: 0;">HMO</h3>
+              <span id="preview-date" style="font-size: 16px; color: #000;"></span>
+            </div>
+            <div class="invoice-row" id="preview-from-row" style="font-size: 12px; margin-bottom: 6px; display: none;"><span id="preview-from"></span></div>
+            <div class="invoice-row" id="preview-to-row" style="font-size: 12px; margin-bottom: 18px; display: none;"><span id="preview-to"></span></div>
+            <div id="costs-section" style="margin-bottom: 18px; border-bottom: 1px solid #000; padding-bottom: 12px; display: none;">
+              <div class="invoice-row" id="preview-subtotal-row" style="display: none; margin-bottom: 2px;"><strong>Purchase Price:</strong><span id="preview-subtotal">£0</span></div>
+              <div class="invoice-row" id="preview-tax-row" style="display: none; margin-bottom: 2px;"><strong>Total Build Costs:</strong><span id="preview-tax">£0</span></div>
+              <div class="invoice-row" id="preview-total-costs-row" style="display: none; margin-bottom: 2px;"><strong>Total Costs:</strong><span id="preview-total-costs">£0</span></div>
+              <div class="invoice-row" id="preview-total-row" style="margin-top: 6px; display: none; margin-bottom: 2px;"><strong>End Value:</strong><span id="preview-total">£0</span></div>
+            </div>
+            <div id="financial-metrics-section" style="margin-bottom: 18px; border-bottom: 1px solid #000; padding-bottom: 12px; display: none;"></div>
+            <div id="loan-terms-section" style="margin-bottom: 18px; border-bottom: 1px solid #000; padding-bottom: 12px; display: none;"></div>
+            <div id="disclaimer" style="font-size: 10px; color: var(--color-fg-secondary); line-height: 1.2; margin-top: 12px; display: none;">
+              These terms are provided on an indicative basis only and remain subject to borrower, valuation and legal due diligence. Liquid+ operates outside the regulatory purview of the Financial Conduct Authority (FCA) and is not authorised to provide regulated lending facilities. The aforementioned terms apply exclusively to investment properties classified as unregulated assets which fall outside the scope of the Consumer Credit Act. This includes properties that are not occupied by the borrower or their family members, and are wholly or predominantly used for business purposes in accordance with FCA guidelines.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Details Container (Right Side) -->
+      <aside data-v-4f31a168="" data-v-738d8931="">
+        <div id="invoice-form" class="widget" data-v-4f31a168="" data-v-b04ca548="" data-v-e2325a3e="">
+          <header data-v-b04ca548="" data-v-c677ce4f="">
+            <div class="left" data-v-c677ce4f="">
+              <button class="btn focus variant-round has-icon color-subtle" data-v-b04ca548="" data-v-7869ca20="" onclick="window.location.href='index.html'">
+                <div class="content" data-v-7869ca20="">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                    <path stroke="currentColor" stroke-linejoin="bevel" d="M10.25 6.75 4.75 12l5.5 5.25m9-5.25H5"></path>
+                  </svg>
+                </div>
+                <div class="loading" data-v-7869ca20=""></div>
+              </button>
+            </div>
+            <h2 data-v-c677ce4f="">Terms Calculator</h2>
+          </header>
+          <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+            <!-- Borrower Section -->
+            <div data-v-b04ca548="" data-v-4a2989fa="">
+              <div class="cell layout-default button" placeholder="Add info" data-v-4a2989fa="" onclick="toggleAccordion('fromAccordion')">
+                <div class="prefix"><label>Borrower</label></div>
+                <main><label class="empty" data-v-4a2989fa="" id="fromLabel">None</label></main>
+                <aside>
+                  <button class="btn focus variant-round has-icon color-default" data-v-4a2989fa="" data-v-7869ca20="" onclick="toggleAccordion('fromAccordion')">
+                    <div class="content" data-v-7869ca20="">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.2 5.75v12.5M18.45 12H5.95"></path>
+                      </svg>
+                    </div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </aside>
+              </div>
+              <div id="fromAccordion" class="accordion" data-v-4a2989fa="">
+                <div class="content" style="display:none;" data-v-4a2989fa="">
+                  <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Name</label></div>
+                      <main><input autocomplete="off" placeholder="John Smith" required="" data-v-b04ca548="" id="fromName" oninput="capitalizeName(this); updatePreview()"></main>
+                      <aside><div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div></aside>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Phone</label></div>
+                      <main><input autocomplete="off" placeholder="+44 7700 900123" required="" data-v-b04ca548="" id="fromPhone" oninput="restrictPhoneInput(this); updateFromInfo()" maxlength="15"></main>
+                      <aside><div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div></aside>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Email</label></div>
+                      <main><input autocomplete="off" type="email" placeholder="john@example.com" required="" data-v-b04ca548="" id="fromEmail" oninput="updateFromInfo()"></main>
+                      <aside><div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div></aside>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Property Section -->
+            <div data-v-b04ca548="" data-v-4a2989fa="">
+              <div class="cell layout-default button" placeholder="Add info" data-v-4a2989fa="" onclick="toggleAccordion('toAccordion')">
+                <div class="prefix"><label>Property</label></div>
+                <main><label class="empty" data-v-4a2989fa="" id="toLabel">None</label></main>
+                <aside>
+                  <button class="btn focus variant-round has-icon color-default" data-v-4a2989fa="" data-v-7869ca20="" onclick="toggleAccordion('toAccordion')">
+                    <div class="content" data-v-7869ca20="">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.2 5.75v12.5M18.45 12H5.95"></path>
+                      </svg>
+                    </div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </aside>
+              </div>
+              <div id="toAccordion" class="accordion" data-v-4a2989fa="">
+                <div class="content" style="display:none;" data-v-4a2989fa="">
+                  <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Address</label></div>
+                      <main><input placeholder="123 High Street" required="" data-v-b04ca548="" id="toAddress" oninput="capitalizeAddress(this); updateToInfo()"></main>
+                      <aside><div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div></aside>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Postcode</label></div>
+                      <main><input placeholder="SW1A 1AA" required="" data-v-b04ca548="" id="toZip" oninput="formatPostcode(this); updateToInfo()" maxlength="8"></main>
+                      <aside><div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div></aside>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Bedrooms</label></div>
+                      <main><input type="number" placeholder="3" data-v-b04ca548="" id="bedrooms" min="2" max="20" oninput="updatePreview()"></main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Bathrooms</label></div>
+                      <main><input type="number" placeholder="2" data-v-b04ca548="" id="bathrooms" min="0" max="10" oninput="updatePreview()"></main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Area (sqft)</label></div>
+                      <main><input type="number" placeholder="1200" data-v-b04ca548="" id="area" min="0" oninput="updatePreview()"></main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Type</label></div>
+                      <main>
+                        <select data-v-b04ca548="" id="propertyType" style="width: 100%; height: 100%; background: transparent; border: none; outline: none; font: inherit;" oninput="updatePreview()">
+                          <option value="">Select type</option>
+                          <option value="flat">Flat</option>
+                          <option value="terraced_house">Terraced House</option>
+                          <option value="semi-detached_house">Semi-detached House</option>
+                          <option value="detached_house">Detached House</option>
+                        </select>
+                      </main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Condition</label></div>
+                      <main>
+                        <select data-v-b04ca548="" id="condition" style="width: 100%; height: 100%; background: transparent; border: none; outline: none; font: inherit;" oninput="updatePreview()">
+                          <option value="poor" selected>Poor</option>
+                          <option value="average">Average</option>
+                        </select>
+                      </main>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Proposed Changes Section -->
+            <div data-v-b04ca548="" data-v-4a2989fa="">
+              <div class="cell layout-default button" placeholder="Add info" data-v-4a2989fa="" onclick="toggleAccordion('proposedAccordion')">
+                <div class="prefix"><label>Proposed Changes</label></div>
+                <main><label class="empty" data-v-4a2989fa="" id="proposedLabel">None</label></main>
+                <aside>
+                  <button class="btn focus variant-round has-icon color-default" data-v-4a2989fa="" data-v-7869ca20="" onclick="toggleAccordion('proposedAccordion')">
+                    <div class="content" data-v-7869ca20="">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.2 5.75v12.5M18.45 12H5.95"></path>
+                      </svg>
+                    </div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </aside>
+              </div>
+              <div id="proposedAccordion" class="accordion" data-v-4a2989fa="">
+                <div class="content" style="display:none;" data-v-4a2989fa="">
+                  <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Bedrooms</label></div>
+                      <main><input type="number" placeholder="3" data-v-b04ca548="" id="proposedBedrooms" min="2" max="20" oninput="updateRoomInputs(); updateProposedInfo(); updatePreview()"></main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Bathrooms</label></div>
+                      <main><input type="number" placeholder="2" value="" data-v-b04ca548="" id="proposedBathrooms" min="0" max="10" oninput="updateProposedInfo(); updatePreview()"></main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Area (sqft)</label></div>
+                      <main><input type="number" placeholder="1200" data-v-b04ca548="" id="proposedArea" min="0" oninput="updateProposedInfo(); updatePreview()"></main>
+                    </div>
+                    <div class="cell layout-default" data-v-b04ca548="">
+                      <div class="prefix"><label>Finish Quality</label></div>
+                      <main>
+                        <select data-v-b04ca548="" id="finishQuality" style="width: 100%; height: 100%; background: transparent; border: none; outline: none; font: inherit;" oninput="updateProposedInfo(); updatePreview()">
+                          <option value="average" selected>Average</option>
+                          <option value="high">High</option>
+                          <option value="very_high">Very High</option>
+                        </select>
+                      </main>
+                    </div>
+                    <div id="roomInputsContainer" class="cell-group" data-v-b04ca548="" data-v-235dc1c8="" style="display: none;">
+                      <div class="cell layout-default" data-v-b04ca548="">
+                        <div class="prefix"><label>HMO Rooms</label></div>
+                        <main></main>
+                      </div>
+                      <div class="cell layout-default button" data-v-b04ca548="">
+                        <div class="prefix"><label>Add room</label></div>
+                        <main></main>
+                        <aside>
+                          <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="addRoomItem()">
+                            <div class="content" data-v-7869ca20="">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.2 5.75v12.5M18.45 12H5.95"></path>
+                              </svg>
+                            </div>
+                            <div class="loading" data-v-7869ca20=""></div>
+                          </button>
+                        </aside>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Project Details -->
+          <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+            <div class="cell layout-default" data-v-b04ca548="">
+              <div class="prefix"><label>Purchase Price</label></div>
+              <main style="position: relative;">
+                <div class="field-loading" id="purchasePriceLoading"><div class="field-loading-spinner"></div></div>
+                <input type="number" placeholder="250000" required="" data-v-b04ca548="" id="purchasePrice" value="" step="1" oninput="updatePreview()">
+              </main>
+              <aside>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div>
+                  <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="predictPurchasePrice()" style="width: auto; padding: 0 8px; border-radius: 999px;">
+                    <div class="content" data-v-7869ca20"><span class="predict-text">Predict+</span></div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <!-- Build Costs -->
+          <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+            <div class="cell layout-default" data-v-b04ca548="">
+              <div class="prefix"><label>Total Build Costs</label></div>
+              <main style="position: relative;">
+                <div class="field-loading" id="buildCostsLoading"><div class="field-loading-spinner"></div></div>
+                <input type="number" placeholder="Populate details below" required="" data-v-b04ca548="" id="totalBuildCosts" value="" step="1" oninput="updatePreview()" readonly>
+              </main>
+              <aside>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div>
+                  <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="predictBuildCosts()" style="width: auto; padding: 0 8px; border-radius: 999px;">
+                    <div class="content" data-v-7869ca20"><span class="predict-text">Predict+</span></div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <!-- Line Items -->
+          <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="" id="lineItemsContainer">
+            <div class="cell layout-default" data-v-b04ca548="">
+              <div class="prefix"><label>Build Works</label></div>
+              <main></main>
+            </div>
+            <div class="cell layout-default button" data-v-b04ca548="">
+              <div class="prefix"><label>Add work item</label></div>
+              <main></main>
+              <aside>
+                <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="addLineItem()">
+                  <div class="content" data-v-7869ca20="">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.2 5.75v12.5M18.45 12H5.95"></path>
+                    </svg>
+                  </div>
+                  <div class="loading" data-v-7869ca20=""></div>
+                </button>
+              </aside>
+            </div>
+          </div>
+          <!-- End Value -->
+          <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+            <div class="cell layout-default" data-v-b04ca548="">
+              <div class="prefix"><label>End Value</label></div>
+              <main style="position: relative;">
+                <div class="field-loading" id="endValueLoading">
+                  <div class="field-loading-spinner"></div>
+                </div>
+                <input type="number" placeholder="350000" required="" data-v-b04ca548="" id="endValue" value="" step="1" oninput="updatePreview()">
+              </main>
+              <aside>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div>
+                  <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="predictEndValue()" style="width: auto; padding: 0 8px; border-radius: 999px;">
+                    <div class="content" data-v-7869ca20"><span class="predict-text">Predict+</span></div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <!-- Estimated Rent -->
+          <div class="cell-group" data-v-b04ca548="" data-v-235dc1c8="">
+            <div class="cell layout-default" data-v-b04ca548="">
+              <div class="prefix"><label>Estimated Rent (pcm)</label></div>
+              <main style="position: relative;">
+                <div class="field-loading" id="rentLoading"><div class="field-loading-spinner"></div></div>
+                <input type="number" placeholder="2000" required="" data-v-b04ca548="" id="estimatedRent" value="" step="1" oninput="updatePreview()">
+              </main>
+              <aside>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <div class="cell-validate" data-v-b04ca548="" data-v-314b387c=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-fg-tertiary);" data-v-314b387c=""><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5m6.25-10.5-12.5 6.5m12.5 0-12.5-6.5"></path></svg></div>
+                  <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="predictRent()" style="width: auto; padding: 0 8px; border-radius: 999px;">
+                    <div class="content" data-v-7869ca20"><span class="predict-text">Predict+</span></div>
+                    <div class="loading" data-v-7869ca20=""></div>
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <!-- Calculate Button -->
+          <footer data-v-b04ca548="">
+            <button class="btn focus variant-default has-icon color-tint" data-v-b04ca548="" data-v-7869ca20="" onclick="createInvoice()">
+              <div class="content" data-v-7869ca20="">
+                <span>Calculate</span>
+                <div class="loading" data-v-7869ca20=""></div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                  <path stroke="currentColor" stroke-linejoin="bevel" stroke-width="1.2" d="m13.75 6.75 5.5 5.25-5.5 5.25M19 12H4.75"></path>
+                </svg>
+              </div>
+            </button>
+          </footer>
+        </div>
+        <!-- Success Screen -->
+        <div id="success-screen" class="widget success-screen" data-v-4f31a168="" data-v-b04ca548="" data-v-e2325a3e="">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <h2 id="success-title">You're Eligible!</h2>
+          <p id="success-message" style="text-align: left;"></p>
+          <div class="success-actions">
+            <button id="download-terms-btn" class="btn focus variant-default has-icon color-tint" data-v-b04ca548="" data-v-7869ca20="" onclick="downloadPDF()">
+              <div class="content" data-v-7869ca20="">
+                Download Terms
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15V4.75M8.75 12l3.25 3.25 3.25-3.25M19.25 17v1.25a1 1 0 0 1-1 1H5.75a1 1 0 0 1-1-1V17"></path>
+                </svg>
+              </div>
+            </button>
+            <button class="btn focus variant-default has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="window.location.href='index.html'">
+              <div class="content" data-v-7869ca20="">
+                New Calculation
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75v14.5M4.75 12h14.5"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="toasts" data-v-b9db4637="" id="toastsContainer"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  let state = {
+    lineItems: [],
+    roomItems: [],
+    predictedBuildCosts: false,
+    loanTerms: {
+      dayOneLTV: 0.75,
+      buildCostsCoverage: 1.0,
+      interestRate: 0.0099,
+      term: 9,
+      arrangementFee: 0.01,
+      exitFee: 0.005
+    },
+    loanData: null
+  };
+  const API_KEY = '95BTNSEGPA'; // Replace with valid PropertyData API key
+
+  function toggleAccordion(id) {
+    const accordion = document.getElementById(id);
+    const content = accordion.querySelector('.content');
+    const button = accordion.previousElementSibling.querySelector('button');
+    const icon = button.querySelector('.nuxt-icon');
+    if (content.style.display === 'none') {
+      accordion.style.height = 'auto';
+      content.style.display = 'block';
+      icon.classList.add('rotate');
+      icon.innerHTML = '<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.45 12H5.95"></path>';
+    } else {
+      accordion.style.height = '0';
+      content.style.display = 'none';
+      icon.classList.remove('rotate');
+      icon.innerHTML = '<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.2 5.75v12.5M18.45 12H5.95"></path>';
+    }
+  }
+
+  function addLineItem() {
+    const lineItemsContainer = document.getElementById('lineItemsContainer');
+    const addButton = lineItemsContainer.querySelector('.cell.button');
+    const lineItemId = `lineItem${state.lineItems.length}`;
+    const lineItem = document.createElement('div');
+    lineItem.className = 'cell layout-default';
+    lineItem.id = lineItemId;
+    lineItem.setAttribute('data-v-b04ca548', '');
+    lineItem.innerHTML = `
+      <div class="prefix"><label>Item ${state.lineItems.length + 1}</label></div>
+      <main style="display: flex; gap: 10px;">
+        <input placeholder="Description" data-v-b04ca548="" class="description" style="flex: 3;" maxlength="250" oninput="updateBuildCosts()">
+        <input type="number" placeholder="Cost" data-v-b04ca548="" class="price" style="flex: 2; text-align: right;" step="1" oninput="updateBuildCosts()">
+      </main>
+      <aside>
+        <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="removeLineItem('${lineItemId}')">
+          <div class="content" data-v-7869ca20="">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.45 12H5.95"></path>
+            </svg>
+          </div>
+        </button>
+      </aside>
+    `;
+    lineItemsContainer.insertBefore(lineItem, addButton);
+    state.lineItems.push({ id: lineItemId, description: '', price: 0 });
+    updateBuildCosts();
+  }
+
+  function removeLineItem(id) {
+    const lineItem = document.getElementById(id);
+    if (lineItem) {
+      lineItem.remove();
+      state.lineItems = state.lineItems.filter(item => item.id !== id);
+      updateBuildCosts();
+    }
+  }
+
+  function addRoomItem() {
+    const roomItemsContainer = document.getElementById('roomInputsContainer');
+    const addButton = roomItemsContainer.querySelector('.cell.button');
+    const roomItemId = `roomItem${state.roomItems.length}`;
+    const roomItem = document.createElement('div');
+    roomItem.className = 'cell layout-default room-item';
+    roomItem.id = roomItemId;
+    roomItem.setAttribute('data-v-b04ca548', '');
+    roomItem.innerHTML = `
+      <div class="prefix"><label>Room ${state.roomItems.length + 1}</label></div>
+      <main>
+        <select data-v-b04ca548="" class="room-type" style="width: 100%; height: 100%; background: transparent; border: none; outline: none; font: inherit;" oninput="updateRoomCount()">
+          <option value="room_double_en_suite">Double En-suite</option>
+          <option value="room_double">Double Shared Bath</option>
+          <option value="room_single_en_suite">Single En-suite</option>
+          <option value="room_single">Single Shared Bath</option>
+        </select>
+      </main>
+      <aside>
+        <button class="btn focus variant-round has-icon color-default" data-v-b04ca548="" data-v-7869ca20="" onclick="removeRoomItem('${roomItemId}')">
+          <div class="content" data-v-7869ca20="">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nuxt-icon nuxt-icon--fill icon" style="width:calc(32 * var(--base-unit));height:calc(32 * var(--base-unit));color:var(--color-undefined);" data-v-7869ca20="">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.45 12H5.95"></path>
+            </svg>
+          </div>
+        </button>
+      </aside>
+    `;
+    roomItemsContainer.insertBefore(roomItem, addButton);
+    state.roomItems.push({ id: roomItemId, type: 'room_double_en_suite' });
+    updateRoomCount();
+  }
+
+  function removeRoomItem(id) {
+    const roomItem = document.getElementById(id);
+    if (roomItem) {
+      roomItem.remove();
+      state.roomItems = state.roomItems.filter(item => item.id !== id);
+      updateRoomCount();
+    }
+  }
+
+  function updateRoomInputs() {
+    const bedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+    const roomInputsContainer = document.getElementById('roomInputsContainer');
+    const bedroomsInput = document.getElementById('proposedBedrooms');
+    if (bedrooms >= 4) {
+        roomInputsContainer.style.display = 'block';
+        if (state.roomItems.length === 0) {
+            // Add default room configuration based on bedroom count
+            for (let i = 0; i < bedrooms; i++) {
+                addRoomItem();
+            }
+        }
+        bedroomsInput.disabled = true;
+        bedroomsInput.value = state.roomItems.length;
+        bedroomsInput.placeholder = 'Populate Schedule Below';
+        bedroomsInput.style.color = 'var(--color-fg-tertiary)';
+    } else {
+        roomInputsContainer.style.display = 'none';
+        state.roomItems.forEach(item => removeRoomItem(item.id));
+        state.roomItems = [];
+        bedroomsInput.disabled = false;
+        bedroomsInput.placeholder = '3';
+        bedroomsInput.style.color = '#000';
+    }
+}
+
+  function updateRoomCount() {
+    const bedroomsInput = document.getElementById('proposedBedrooms');
+    if (!bedroomsInput) return;
+    
+    let totalRooms = 0;
+    state.roomItems.forEach(item => {
+        const element = document.getElementById(item.id);
+        if (element) {
+            const type = element.querySelector('.room-type').value;
+            if (type) totalRooms++;
+        }
+    });
+    
+    // Update proposedBedrooms to match room count
+    if (totalRooms > 0) {
+        bedroomsInput.value = totalRooms;
+        // Disable manual bedroom input when rooms are configured
+        bedroomsInput.disabled = true;
+        bedroomsInput.style.color = 'var(--color-fg-tertiary)';
+    }
+    
+    updateProposedInfo();
+    updatePreview();
+}
+
+  function updateBuildCosts() {
+    const totalBuildCostsInput = document.getElementById('totalBuildCosts');
+    const items = state.lineItems.map(item => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        const description = element.querySelector('.description').value || '';
+        const price = Math.round(parseFloat(element.querySelector('.price').value) || 0);
+        return { description, price };
+      }
+      return item;
+    });
+    const totalBuildCosts = items.reduce((sum, item) => sum + item.price, 0);
+    if (totalBuildCosts > 0 || state.predictedBuildCosts) {
+      totalBuildCostsInput.value = totalBuildCosts;
+      totalBuildCostsInput.placeholder = '';
+      totalBuildCostsInput.style.color = state.predictedBuildCosts ? 'var(--color-fg-tertiary)' : '#000';
+    } else {
+      totalBuildCostsInput.value = '';
+      totalBuildCostsInput.placeholder = 'Populate details below';
+      totalBuildCostsInput.style.color = 'var(--color-fg-tertiary)';
+    }
+    updatePreview();
+    return items;
+  }
+
+  function capitalizeName(input) {
+    input.value = input.value.replace(/\b\w/g, char => char.toUpperCase()).slice(0, 250);
+  }
+
+  function capitalizeAddress(input) {
+    input.value = input.value.replace(/\b\w/g, char => char.toUpperCase()).slice(0, 250);
+  }
+
+  function restrictPhoneInput(input) {
+    input.value = input.value.replace(/[^0-9+]/g, '').slice(0, 15);
+  }
+
+  function validateEmail(input) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input.value)) {
+      input.setCustomValidity('Please enter a valid email address');
+    } else {
+      input.setCustomValidity('');
+    }
+    input.value = input.value.slice(0, 250);
+  }
+
+  function updateFromInfo() {
+    const fromName = document.getElementById('fromName').value;
+    document.getElementById('fromLabel').textContent = fromName || 'None';
+    document.getElementById('fromLabel').classList.toggle('empty', !fromName);
+    updatePreview();
+  }
+
+  function updateToInfo() {
+    const toAddress = document.getElementById('toAddress').value;
+    const toZip = document.getElementById('toZip').value;
+    const labelText = toAddress || toZip ? `${toAddress}${toAddress && toZip ? ', ' : ''}${toZip}` : 'None';
+    document.getElementById('toLabel').textContent = labelText;
+    document.getElementById('toLabel').classList.toggle('empty', !toAddress && !toZip);
+    updatePreview();
+  }
+
+  function updateProposedInfo() {
+    const bedrooms = document.getElementById('proposedBedrooms').value;
+    const bathrooms = document.getElementById('proposedBathrooms').value;
+    const area = document.getElementById('proposedArea').value;
+    const labelText = bedrooms || bathrooms || area ? `${bedrooms || ''} Beds, ${bathrooms || ''} Baths, ${area || ''} sqft` : 'None';
+    document.getElementById('proposedLabel').textContent = labelText;
+    document.getElementById('proposedLabel').classList.toggle('empty', !bedrooms && !bathrooms && !area);
+  }
+
+  function formatPostcode(input) {
+    let value = input.value.toUpperCase().replace(/\s/g, '');
+    if (value.length > 8) value = value.slice(0, 8);
+    if (value.length > 3) value = value.slice(0, -3) + ' ' + value.slice(-3);
+    input.value = value.slice(0, 250);
+  }
+
+  function calculateLoanTerms() {
+    const purchasePrice = Math.round(parseFloat(document.getElementById('purchasePrice').value) || 0);
+    const endValue = Math.round(parseFloat(document.getElementById('endValue').value) || 0);
+    const buildCosts = Math.round(parseFloat(document.getElementById('totalBuildCosts').value) || 0);
+    const estimatedRent = Math.round(parseFloat(document.getElementById('estimatedRent').value) || 0);
+    
+    if (!purchasePrice || !endValue || !buildCosts) return null;
+    
+    // Determine number of drawdowns based on build costs
+    let drawdowns = 4; // minimum
+    if (buildCosts > 150000) drawdowns = 5;
+    if (buildCosts > 200000) drawdowns = 6;
+  
+    // Set loan term based on build costs
+    const term = buildCosts <= 50000 ? 9 : 12;
+    
+    const interestRate = state.loanTerms.interestRate;
+    const arrangementFeeRate = state.loanTerms.arrangementFee;
+    const endValueCap = 0.70; // Fixed at 70%
+    
+    // Calculate drawdown fees
+    const drawdownFeeTotal = drawdowns * 500;
+    
+    // Build loan is always 100% of build costs
+    const buildLoan = buildCosts;
+    
+    // Calculate maximum loan based on end value cap
+    const maxTotalLoan = endValue * endValueCap;
+    
+    // Set LTV based on purchase price and build costs
+    const maxPurchaseLTV = (purchasePrice < 250000 && buildCosts < 100000) ? 0.75 : 0.70;
+    
+    // Calculate purchase loan (not reduced by drawdown fees, only capped by end value)
+    let purchaseLoanGross = purchasePrice * maxPurchaseLTV;
+    if (purchaseLoanGross + buildLoan > maxTotalLoan) {
+        purchaseLoanGross = Math.max(0, maxTotalLoan - buildLoan);
+    }
+    
+    // Calculate interest
+    // Purchase loan interest is charged for full term
+    const purchaseInterest = purchaseLoanGross * interestRate * term;
+    
+    // Build loan interest calculation with dynamic drawdowns (rolled up)
+    const drawdownAmount = buildLoan / drawdowns;
+    let buildLoanInterest = 0;
+    for (let i = 0; i < drawdowns; i++) {
+        const monthsRemaining = term - (i + 1); // First drawdown at month 2
+        buildLoanInterest += drawdownAmount * interestRate * (monthsRemaining / 12);
+    }
+    
+    const totalInterest = purchaseInterest + buildLoanInterest;
+    
+    // Calculate fees and total loan
+    const exitFee = state.loanTerms.exitFee * (purchaseLoanGross + buildLoan);
+    const grossLoanWithoutArrangement = purchaseLoanGross + buildLoan + totalInterest + exitFee + drawdownFeeTotal;
+    const arrangementFee = grossLoanWithoutArrangement * arrangementFeeRate / (1 - arrangementFeeRate);
+    const grossLoan = grossLoanWithoutArrangement + arrangementFee;
+    
+    // Calculate net values
+    const netLoan = purchaseLoanGross + buildLoan;
+    const totalFinanceCosts = arrangementFee + totalInterest + exitFee + drawdownFeeTotal;
+    const totalCosts = purchasePrice + buildCosts + totalFinanceCosts;
+    const profit = endValue - totalCosts;
+    const equityRequired = purchasePrice + buildCosts - netLoan;
+    
+    // Calculate unlevered yield (annual rent / total costs * 100)
+    const unleveredYield = estimatedRent > 0 ? ((estimatedRent * 12) / totalCosts) * 100 : 0;
+    
+    return {
+        purchasePrice, 
+        endValue,
+        buildCosts,
+        estimatedRent,
+        purchaseLoan: purchaseLoanGross,
+        buildLoan,
+        grossLoan,
+        arrangementFee,
+        arrangementFeePercentage: arrangementFeeRate * 100,
+        totalInterest,
+        interestPerMonth: totalInterest / term,
+        netLoan,
+        totalFinanceCosts,
+        totalCosts,
+        profit,
+        equityRequired,
+        roi: (equityRequired > 0 ? (profit / equityRequired) * 100 : 0),
+        unleveredYield
+    };
+  }
+
+  async function predictPurchasePrice() {
+    if (!validatePredictFields(['toZip', 'bedrooms', 'propertyType', 'condition', 'area'])) {
+        showToast('Please fill in postcode, bedrooms, property type, condition and area');
+        return;
+    }
+    const bedrooms = parseInt(document.getElementById('bedrooms').value) || 0;
+    if (bedrooms > 5) {
+        showToast('Maximum 5 bedrooms supported for valuation');
+        return;
+    }
+    const button = document.querySelector('button[onclick="predictPurchasePrice()"]');
+    const loadingElement = button.querySelector('.loading');
+    const predictText = button.querySelector('.predict-text');
+    loadingElement.style.opacity = '1';
+    predictText.classList.add('predict-animation');
+    button.disabled = true;
+    try {
+        // DEMO MODE: Using dummy data for demonstration
+        // For production, uncomment the API call below and remove dummy data
+        
+        /* Real API Integration (currently disabled for demo)
+        const postcode = document.getElementById('toZip').value;
+        const propertyType = document.getElementById('propertyType').value;
+        const condition = document.getElementById('condition').value;
+        const area = document.getElementById('area').value;
+        const bathrooms = document.getElementById('bathrooms').value || 1;
+        
+        // Map condition to finish_quality
+        const finishQuality = condition === 'poor' ? 'below_average' : 'average';
+        
+        const url = `https://api.propertydata.co.uk/valuation-sale?key=${API_KEY}&postcode=${encodeURIComponent(postcode)}&property_type=${propertyType}&construction_date=1914_2000&internal_area=${area}&bedrooms=${bedrooms}&bathrooms=${bathrooms}&finish_quality=${finishQuality}&outdoor_space=none&off_street_parking=0`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.status === 'success') {
+            const predictedPrice = Math.round(data.result.estimate / 5000) * 5000;
+        } else {
+            throw new Error(data.message || 'Failed to predict purchase price');
+        }
+        */
+        
+        // Dummy response for demo
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+        const area = parseInt(document.getElementById('area').value) || 1000;
+        const basePricePerSqft = 280; // Base price per sqft
+        const dummyPrice = Math.round((area * basePricePerSqft + bedrooms * 30000) / 5000) * 5000;
+        
+        const input = document.getElementById('purchasePrice');
+        input.value = dummyPrice;
+        input.style.color = '#000';
+        updatePreview();
+        showToast('Purchase price predicted (Demo Data)');
+    } catch (error) {
+        console.error('Error predicting purchase price:', error);
+        showToast(error.message || 'Failed to predict purchase price');
+    } finally {
+        loadingElement.style.opacity = '0';
+        predictText.classList.remove('predict-animation');
+        button.disabled = false;
+    }
+}
+
+  async function predictBuildCosts() {
+    if (!validatePredictFields(['toZip', 'proposedArea', 'finishQuality', 'proposedBedrooms'])) {
+      showToast('Please fill in postcode, proposed area, finish quality, and proposed bedrooms');
+      return;
+    }
+    const button = document.querySelector('button[onclick="predictBuildCosts()"]');
+    const loadingElement = button.querySelector('.loading');
+    const predictText = button.querySelector('.predict-text');
+    loadingElement.style.opacity = '1';
+    predictText.classList.add('predict-animation');
+    button.disabled = true;
+    try {
+      // DEMO MODE: Using dummy data for demonstration
+      // For production, uncomment the API call below and remove dummy data
+      
+      /* Real API Integration (currently disabled for demo)
+      const postcode = document.getElementById('toZip').value.replace(/\s/g, '');
+      const internalArea = document.getElementById('proposedArea').value;
+      const finishQualityInput = document.getElementById('finishQuality').value;
+      const proposedBedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+      let translatedFinishQuality = finishQualityInput === 'very_high' ? 'premium' : finishQualityInput === 'high' ? 'medium' : 'basic';
+      const projectType = proposedBedrooms > 4 ? 'refurb_heavy' : 'refurb_moderate';
+      const url = `https://api.propertydata.co.uk/build-cost?key=${API_KEY}&postcode=${encodeURIComponent(postcode)}&internal_area=${internalArea}&finish_quality=${translatedFinishQuality}&project_type=${projectType}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.status === 'success') {
+        const totalCost = Math.round(data.data.total_cost / 100) * 100;
+      } else {
+        throw new Error(data.message || 'Failed to predict build costs');
+      }
+      */
+      
+      // Dummy response for demo
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+      const area = parseInt(document.getElementById('proposedArea').value) || 1000;
+      const finishQualityInput = document.getElementById('finishQuality').value;
+      const proposedBedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+      
+      // Dummy calculation: HMO conversions are more expensive
+      let costPerSqft = finishQualityInput === 'very_high' ? 200 : finishQualityInput === 'high' ? 150 : 120;
+      if (proposedBedrooms > 4) costPerSqft += 30; // HMO premium
+      const totalCost = Math.round((area * costPerSqft) / 100) * 100;
+      
+      const input = document.getElementById('totalBuildCosts');
+      input.value = totalCost;
+      input.style.color = '#000';
+      state.predictedBuildCosts = true;
+      document.getElementById('lineItemsContainer').style.display = 'none';
+      updatePreview();
+      showToast('Build costs predicted (Demo Data)');
+    } catch (error) {
+      console.error('Error predicting build costs:', error);
+      showToast(error.message || 'Failed to predict build costs');
+      // Fallback calculation
+      const area = parseInt(document.getElementById('proposedArea').value) || 1000;
+      const predictedCost = area * 150; // £150 per sqft
+      document.getElementById('totalBuildCosts').value = predictedCost;
+      state.predictedBuildCosts = true;
+      updatePreview();
+    } finally {
+      loadingElement.style.opacity = '0';
+      predictText.classList.remove('predict-animation');
+      button.disabled = false;
+    }
+  }
+
+  async function predictEndValue() {
+    if (!validatePredictFields(['toZip', 'proposedBedrooms', 'proposedArea', 'finishQuality', 'propertyType'])) {
+      showToast('Please fill in postcode, proposed bedrooms, proposed area, finish quality, and property type');
+      return;
+    }
+    const proposedBedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+    if (proposedBedrooms > 5) {
+      showToast('Maximum 5 bedrooms supported for valuation');
+      return;
+    }
+    const button = document.querySelector('button[onclick="predictEndValue()"]');
+    const loadingElement = button.querySelector('.loading');
+    const predictText = button.querySelector('.predict-text');
+    loadingElement.style.opacity = '1';
+    predictText.classList.add('predict-animation');
+    button.disabled = true;
+    try {
+      // DEMO MODE: Using dummy data for demonstration
+      // For production, uncomment the API call below and remove dummy data
+      
+      /* Real API Integration (currently disabled for demo)
+      const postcode = document.getElementById('toZip').value;
+      const propertyType = document.getElementById('propertyType').value;
+      const area = document.getElementById('proposedArea').value;
+      const bathrooms = document.getElementById('proposedBathrooms').value || 1;
+      const finishQuality = document.getElementById('finishQuality').value;
+
+      // Map finish quality to API parameter
+      const finishQualityMap = {
+        'very_high': 'excellent',
+        'high': 'good',
+        'average': 'average'
+      };
+      
+      const url = `https://api.propertydata.co.uk/valuation-sale?key=${API_KEY}&postcode=${encodeURIComponent(postcode)}&property_type=${propertyType}&construction_date=1914_2000&internal_area=${area}&bedrooms=${proposedBedrooms}&bathrooms=${bathrooms}&finish_quality=${finishQualityMap[finishQuality]}&outdoor_space=none&off_street_parking=0`;
+      
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.status === 'success') {
+        let predictedValue = Math.round(data.result.estimate / 5000) * 5000;
+        // Apply HMO premium if applicable
+        if (proposedBedrooms >= 4) predictedValue *= 1.15;
+      } else {
+        throw new Error(data.message || 'Failed to predict end value');
+      }
+      */
+      
+      // Dummy response for demo
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+      const area = parseInt(document.getElementById('proposedArea').value) || 1000;
+      const finishQuality = document.getElementById('finishQuality').value;
+      
+      // End value calculation with HMO premium
+      let basePricePerSqft = finishQuality === 'very_high' ? 450 : finishQuality === 'high' ? 400 : 350;
+      let predictedValue = Math.round((area * basePricePerSqft + proposedBedrooms * 35000) / 5000) * 5000;
+      
+      // Apply HMO premium if applicable
+      if (proposedBedrooms >= 4) predictedValue *= 1.15;
+      
+      const input = document.getElementById('endValue');
+      input.value = Math.round(predictedValue);
+      input.style.color = '#000';
+      updatePreview();
+      showToast('End value predicted (Demo Data)');
+    } catch (error) {
+      console.error('Error predicting end value:', error);
+      showToast(error.message || 'Failed to predict end value');
+      // Fallback calculation
+      const predictedValue = proposedBedrooms * 100000;
+      document.getElementById('endValue').value = predictedValue;
+      updatePreview();
+    } finally {
+      loadingElement.style.opacity = '0';
+      predictText.classList.remove('predict-animation');
+      button.disabled = false;
+    }
+  }
+
+  async function predictRent() {
+    // First check basic validation
+    if (!validatePredictFields(['toZip', 'proposedBedrooms'])) {
+        showToast('Please fill in postcode and proposed bedrooms');
+        return;
+    }
+
+    // Then check room types for HMO
+    if (!validateRoomTypes()) {
+        showToast('Please configure all room types for HMO');
+        return;
+    }
+
+    const button = document.querySelector('button[onclick="predictRent()"]');
+    const loadingElement = button.querySelector('.loading');
+    const predictText = button.querySelector('.predict-text');
+    loadingElement.style.opacity = '1';
+    predictText.classList.add('predict-animation');
+    button.disabled = true;
+    try {
+      // DEMO MODE: Using dummy data for demonstration
+      // For production, uncomment the API call below and remove dummy data
+      
+      const bedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+      let predictedRent = 0;
+
+      /* Real API Integration (currently disabled for demo)
+      const postcode = document.getElementById('toZip').value;
+      const propertyType = document.getElementById('propertyType').value;
+      const area = document.getElementById('proposedArea').value;
+
+      if (bedrooms >= 4) {
+        // For 4+ bedrooms use HMO rents
+        const url = `https://api.propertydata.co.uk/rents-hmo?key=${API_KEY}&postcode=${encodeURIComponent(postcode)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.status === 'success') {
+          const roomCounts = { room_double_en_suite: 0, room_double: 0, room_single_en_suite: 0, room_single: 0 };
+          state.roomItems.forEach(item => {
+            const element = document.getElementById(item.id);
+            if (element) {
+              const type = element.querySelector('.room-type').value;
+              roomCounts[type]++;
+            }
+          });
+
+          // Defensive: check data.data exists and each rent type exists
+          const hmoData = data.data || {};
+          const weeklyRent = (
+            roomCounts.room_double_en_suite * ((hmoData['double-ensuite'] && hmoData['double-ensuite'].average) || 0) +
+            roomCounts.room_double * ((hmoData['double-shared-bath'] && hmoData['double-shared-bath'].average) || 0) +
+            roomCounts.room_single_en_suite * ((hmoData['single-ensuite'] && hmoData['single-ensuite'].average) || 0) +
+            roomCounts.room_single * ((hmoData['single-shared-bath'] && hmoData['single-shared-bath'].average) || 0)
+          );
+
+          // Convert weekly to monthly
+          predictedRent = Math.round((weeklyRent * 52) / 12);
+        } else {
+          throw new Error(data.message || 'Failed to predict HMO rent');
+        }
+      } else {
+        // For <4 bedrooms use standard rental valuation
+        const url = `https://api.propertydata.co.uk/valuation-rent?key=${API_KEY}&postcode=${encodeURIComponent(postcode)}&property_type=${propertyType}&construction_date=1914_2000&internal_area=${area}&bedrooms=${bedrooms}&bathrooms=1&finish_quality=average&outdoor_space=none&off_street_parking=0`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.status === 'success') {
+          if (data.result.unit === 'gbp_per_week') {
+            predictedRent = Math.round((data.result.estimate * 52) / 12);
+          } else if (data.result.unit === 'gbp_per_month') {
+            predictedRent = data.result.estimate;
+          } else {
+            throw new Error('Unexpected rent unit in API response');
+          }
+        } else {
+          throw new Error(data.message || 'Failed to predict rent');
+        }
+      }
+      */
+      
+      // Dummy response for demo
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+      
+      if (bedrooms >= 4) {
+        // For HMO, calculate based on room types
+        const roomCounts = { room_double_en_suite: 0, room_double: 0, room_single_en_suite: 0, room_single: 0 };
+        state.roomItems.forEach(item => {
+          const element = document.getElementById(item.id);
+          if (element) {
+            const type = element.querySelector('.room-type').value;
+            roomCounts[type]++;
+          }
+        });
+        
+        // Dummy weekly rents per room type
+        const dummyWeeklyRents = {
+          room_double_en_suite: 140,
+          room_double: 110,
+          room_single_en_suite: 120,
+          room_single: 95
+        };
+        
+        const weeklyRent = (
+          roomCounts.room_double_en_suite * dummyWeeklyRents.room_double_en_suite +
+          roomCounts.room_double * dummyWeeklyRents.room_double +
+          roomCounts.room_single_en_suite * dummyWeeklyRents.room_single_en_suite +
+          roomCounts.room_single * dummyWeeklyRents.room_single
+        );
+        
+        // Convert weekly to monthly
+        predictedRent = Math.round((weeklyRent * 52) / 12);
+      } else {
+        // For standard rental, use simple calculation
+        predictedRent = bedrooms * 550; // £550 per bedroom per month
+      }
+
+      predictedRent = Math.round(predictedRent / 50) * 50;
+      const input = document.getElementById('estimatedRent');
+      input.value = predictedRent;
+      input.style.color = '#000';
+      updatePreview();
+      showToast('Rent predicted (Demo Data)');
+    } catch (error) {
+      console.error('Error predicting rent:', error);
+      showToast(error.message || 'Failed to predict rent');
+      // Fallback calculation
+      const bedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 3;
+      const predictedRent = bedrooms * 500;
+      document.getElementById('estimatedRent').value = predictedRent;
+      updatePreview();
+    } finally {
+      loadingElement.style.opacity = '0';
+      predictText.classList.remove('predict-animation');
+      button.disabled = false;
+    }
+  }
+
+  // Update room type mapping for API calls
+const roomTypeMap = {
+    'room_double_en_suite': 'double-ensuite',
+    'room_double': 'double-shared-bath',
+    'room_single_en_suite': 'single-ensuite',
+    'room_single': 'single-shared-bath'
+};
+
+  function validatePredictFields(requiredFields) {
+    // Basic field validation
+    if (!requiredFields.every(id => {
+        const el = document.getElementById(id);
+        return el && el.value;
+    })) {
+        return false;
+    }
+
+    // Special validation for bedrooms
+    if (requiredFields.includes('proposedBedrooms')) {
+        const proposedBedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+        // For 4+ bedrooms, validate room configuration
+        if (proposedBedrooms >= 4) {
+            if (state.roomItems.length !== proposedBedrooms) return false;
+            return state.roomItems.every(item => {
+                const element = document.getElementById(item.id);
+                return element && element.querySelector('.room-type').value;
+            });
+        }
+    }
+
+    return true;
+}
+
+  function validateRoomConfiguration() {
+    const bedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+    
+    if (bedrooms >= 4) {
+        // Check if room count matches bedrooms
+        if (state.roomItems.length !== bedrooms) return false;
+        
+        // Verify all rooms have types selected
+        let roomCounts = {
+            room_double_en_suite: 0,
+            room_double: 0,
+            room_single_en_suite: 0,
+            room_single: 0
+        };
+        
+        let validConfig = state.roomItems.every(item => {
+            const element = document.getElementById(item.id);
+            if (!element) return false;
+            const type = element.querySelector('.room-type').value;
+            if (!type) return false;
+            roomCounts[type]++;
+            return true;
+        });
+        
+        return validConfig;
+    }
+    
+    return true;
+}
+
+  function validateRoomTypes() {
+    if (!document.getElementById('proposedBedrooms')) return true;
+    const bedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+    
+    if (bedrooms >= 4) {
+        return state.roomItems.length === bedrooms && 
+               state.roomItems.every(item => {
+                   const element = document.getElementById(item.id);
+                   if (!element) return false;
+                   const type = element.querySelector('.room-type').value;
+                   if (!type) return false;
+                   return Object.keys(roomTypeMap).includes(type);
+               });
+    }
+    return true;
+}
+
+  function updatePreview() {
+    const terms = state.loanData ? state.loanData.terms : calculateLoanTerms();
+    const fromName = state.loanData ? state.loanData.borrowerInfo.name : document.getElementById('fromName').value || '';
+    const toAddress = state.loanData ? state.loanData.propertyInfo.address : document.getElementById('toAddress').value || '';
+    const toZip = state.loanData ? state.loanData.propertyInfo.postcode : document.getElementById('toZip').value || '';
+    const purchasePrice = state.loanData ? state.loanData.purchasePrice : Math.round(parseFloat(document.getElementById('purchasePrice').value) || 0);
+    const buildCosts = state.loanData ? state.loanData.buildCosts : Math.round(parseFloat(document.getElementById('totalBuildCosts').value) || 0);
+    const endValue = state.loanData ? state.loanData.endValue : Math.round(parseFloat(document.getElementById('endValue').value) || 0);
+    const estimatedRent = state.loanData ? state.loanData.estimatedRent : Math.round(parseFloat(document.getElementById('estimatedRent').value) || 0);
+    const proposedBedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+
+    document.getElementById('preview-date').textContent = new Date().toLocaleDateString();
+    document.getElementById('preview-from').textContent = fromName;
+    document.getElementById('preview-to').textContent = `${toAddress}${toAddress && toZip ? ', ' : ''}${toZip}`;
+    document.getElementById('preview-from-row').style.display = fromName ? 'flex' : 'none';
+    document.getElementById('preview-to-row').style.display = toAddress || toZip ? 'flex' : 'none';
+    document.getElementById('preview-subtotal').textContent = `£${purchasePrice.toLocaleString()}`;
+    document.getElementById('preview-tax').textContent = `£${buildCosts.toLocaleString()}`;
+    document.getElementById('preview-total-costs').textContent = `£${(purchasePrice + buildCosts).toLocaleString()}`;
+    document.getElementById('preview-total').textContent = `£${endValue.toLocaleString()}`;
+    document.getElementById('preview-subtotal-row').style.display = purchasePrice ? 'flex' : 'none';
+    document.getElementById('preview-tax-row').style.display = buildCosts ? 'flex' : 'none';
+    document.getElementById('preview-total-costs-row').style.display = purchasePrice || buildCosts ? 'flex' : 'none';
+    document.getElementById('preview-total-row').style.display = endValue ? 'flex' : 'none';
+    document.getElementById('costs-section').style.display = purchasePrice || buildCosts || endValue ? 'block' : 'none';
+
+    if (terms && (proposedBedrooms <= 4 || (proposedBedrooms > 4 && estimatedRent > 0))) {
+      updateFinancialMetricsPreview(terms);
+      updateLoanTermsPreview(terms);
+      document.getElementById('financial-metrics-section').style.display = 'block';
+      document.getElementById('loan-terms-section').style.display = 'block';
+      document.getElementById('disclaimer').style.display = 'block';
+    } else {
+      document.getElementById('financial-metrics-section').innerHTML = '';
+      document.getElementById('loan-terms-section').innerHTML = '';
+      document.getElementById('financial-metrics-section').style.display = 'none';
+      document.getElementById('loan-terms-section').style.display = 'none';
+      document.getElementById('disclaimer').style.display = 'none';
+    }
+  }
+
+  function updateFinancialMetricsPreview(terms) {
+    const financialMetricsSection = document.getElementById('financial-metrics-section');
+    financialMetricsSection.innerHTML = `
+      <h3 style="font-size: 20px; margin-bottom: 8px; border-bottom: 1px solid #000; padding-bottom: 4px;">Financial Metrics</h3>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Profit:</strong><span>£${Math.round(terms.profit).toLocaleString()}</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>ROI:</strong><span>${terms.roi.toFixed(2)}%</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Equity Required:</strong><span>£${Math.round(terms.equityRequired).toLocaleString()}</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Rent (pcm):</strong><span>£${Math.round(terms.estimatedRent).toLocaleString()}</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Unlevered Yield:</strong><span>${terms.unleveredYield.toFixed(2)}%</span></div>
+    `;
+  }
+
+  function updateLoanTermsPreview(terms) {
+    const loanTermsSection = document.getElementById('loan-terms-section');
+    loanTermsSection.innerHTML = `
+      <h3 style="font-size: 20px; margin-bottom: 8px; border-bottom: 1px solid #000; padding-bottom: 4px;">Loan Terms</h3>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Purchase Loan:</strong><span>£${Math.round(terms.purchaseLoan).toLocaleString()}</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Build Loan:</strong><span>£${Math.round(terms.buildLoan).toLocaleString()}</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Arrangement Fee:</strong><span>${terms.arrangementFeePercentage.toFixed(2)}%</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Net Loan:</strong><span>£${Math.round(terms.netLoan).toLocaleString()}</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Interest Rate:</strong><span>${(state.loanTerms.interestRate * 100).toFixed(2)}%</span></div>
+      <div class="invoice-row" style="margin-bottom: 2px;"><strong>Interest Per Month:</strong><span>£${Math.round(terms.interestPerMonth).toLocaleString()}</span></div>
+    `;
+  }
+
+  function createInvoice() {
+    const button = document.querySelector('footer button');
+    const loadingElement = button.querySelector('.loading');
+    const buttonIcon = button.querySelector('.content svg');
+    const requiredFields = ['fromName', 'fromPhone', 'fromEmail', 'toAddress', 'toZip', 'purchasePrice', 'endValue', 'totalBuildCosts', 'proposedBedrooms', 'proposedBathrooms', 'proposedArea', 'estimatedRent'];
+    if (!requiredFields.every(id => document.getElementById(id).value)) {
+      showToast('Please fill in all required fields');
+      return;
+    }
+    const proposedBedrooms = parseInt(document.getElementById('proposedBedrooms').value) || 0;
+    if (proposedBedrooms > 4 && state.roomItems.length < 2) {
+      showToast('Please add at least two HMO rooms for properties with more than 4 bedrooms');
+      return;
+    }
+    const terms = calculateLoanTerms();
+    if (!terms) {
+      showToast('Unable to calculate loan terms. Please check your inputs.');
+      return;
+    }
+    button.disabled = true;
+    loadingElement.style.opacity = '1';
+    buttonIcon.style.opacity = '0';
+    state.loanData = {
+      borrowerInfo: {
+        name: document.getElementById('fromName').value,
+        phone: document.getElementById('fromPhone').value,
+        email: document.getElementById('fromEmail').value
+      },
+      propertyInfo: {
+        address: document.getElementById('toAddress').value,
+        postcode: document.getElementById('toZip').value
+      },
+      purchasePrice: Math.round(parseFloat(document.getElementById('purchasePrice').value)),
+      endValue: Math.round(parseFloat(document.getElementById('endValue').value)),
+      buildCosts: Math.round(parseFloat(document.getElementById('totalBuildCosts').value)),
+      estimatedRent: Math.round(parseFloat(document.getElementById('estimatedRent').value)),
+      buildItems: updateBuildCosts(),
+      proposedInfo: {
+        bedrooms: document.getElementById('proposedBedrooms').value,
+        bathrooms: document.getElementById('proposedBathrooms').value,
+        area: document.getElementById('proposedArea').value,
+        finishQuality: document.getElementById('finishQuality').value,
+        roomItems: proposedBedrooms > 4 ? state.roomItems.map(item => {
+          const element = document.getElementById(item.id);
+          return { type: element.querySelector('.room-type').value };
+        }) : []
+      },
+      terms: terms
+    };
+    updatePreview();
+    setTimeout(() => {
+      loadingElement.style.opacity = '0';
+      button.disabled = false;
+      buttonIcon.style.opacity = '1';
+      const invoiceForm = document.getElementById('invoice-form');
+      const successScreen = document.getElementById('success-screen');
+      const successTitle = document.getElementById('success-title');
+      const successMessage = document.getElementById('success-message');
+      const downloadTermsBtn = document.getElementById('download-terms-btn');
+      const profitPercentage = (state.loanData.terms.profit / state.loanData.terms.equityRequired) * 100;
+      if (profitPercentage > 10) {
+        successTitle.textContent = "You're Eligible!";
+        successMessage.innerHTML = `Based on your profit of ${Math.ceil(profitPercentage)}%, this seems like a viable HMO conversion project and is something we'd like to support.<br><br>One of the team will be in touch with the next steps. In the meantime, feel free to download a copy of your terms below.`;
+        downloadTermsBtn.style.display = 'inline-flex';
+      } else {
+        successTitle.textContent = "Not Eligible";
+        successMessage.innerHTML = `Unfortunately your HMO conversion proposal does not fall within our lending appetite.<br><br>We would recommend you reduce your purchase price or adjust room configuration and try again.`;
+        downloadTermsBtn.style.display = 'none';
+      }
+      invoiceForm.style.display = 'none';
+      successScreen.style.display = 'flex';
+      // Use fixed positioning on mobile for proper overlay
+      const isMobile = window.innerWidth <= 768;
+      successScreen.style.position = isMobile ? 'fixed' : 'absolute';
+      successScreen.style.top = '0';
+      successScreen.style.left = '0';
+      successScreen.style.width = isMobile ? '100vw' : '100%';
+      successScreen.style.height = isMobile ? '100vh' : '100%';
+      successScreen.style.backgroundColor = 'var(--color-bg)';
+      if (isMobile) successScreen.style.zIndex = '100';
+      successScreen.offsetHeight;
+      successScreen.classList.add('active');
+      updatePreview();
+    }, 3000);
+  }
+
+  const { jsPDF } = window.jspdf;
+  function downloadPDF() {
+    if (!state.loanData || !state.loanData.terms) {
+      showToast('No valid loan data available for PDF generation.');
+      return;
+    }
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'pt',
+      format: 'a4'
+    });
+    const pageWidth = 595.28;
+    const pageHeight = 841.89;
+    const marginLeft = 72;
+    const marginRight = 72;
+    const marginTop = 72;
+    const marginBottom = 72;
+    const contentWidth = pageWidth - marginLeft - marginRight;
+    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--preview-bg-color').trim();
+    const fgColor = '#000000';
+    doc.setFillColor(bgColor);
+    doc.rect(0, 0, pageWidth, pageHeight, 'F');
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(fgColor);
+    doc.setFontSize(40);
+    doc.text('HMO Conversion', marginLeft, marginTop);
+    doc.setFontSize(12);
+    const dateText = new Date().toLocaleDateString();
+    const dateWidth = doc.getTextWidth(dateText);
+    doc.text(dateText, pageWidth - marginRight - dateWidth, marginTop);
+    let yPos = marginTop + 40;
+    const fromName = state.loanData.borrowerInfo.name;
+    const toAddress = state.loanData.propertyInfo.address;
+    const toZip = state.loanData.propertyInfo.postcode;
+    doc.setFontSize(12);
+    if (fromName) {
+      yPos += 14;
+      doc.text(fromName, marginLeft, yPos);
+    }
+    if (toAddress || toZip) {
+      yPos += 14;
+      const propertyText = `${toAddress}${toAddress && toZip ? ', ' : ''}${toZip}`;
+      doc.text(propertyText, marginLeft, yPos);
+    }
+    yPos += 30;
+    doc.setFontSize(12);
+    const costs = [
+      { label: 'Purchase Price:', value: `£${state.loanData.purchasePrice.toLocaleString()}` },
+      { label: 'Total Build Costs:', value: `£${state.loanData.buildCosts.toLocaleString()}` },
+      { label: 'Total Costs:', value: `£${(state.loanData.purchasePrice + state.loanData.buildCosts).toLocaleString()}` },
+      { label: 'End Value:', value: `£${state.loanData.endValue.toLocaleString()}` }
+    ];
+    costs.forEach((item, index) => {
+      doc.setFont('helvetica', 'bold');
+      doc.text(item.label, marginLeft, yPos);
+      doc.setFont('helvetica', 'normal');
+      const valueWidth = doc.getTextWidth(item.value);
+      doc.text(item.value, pageWidth - marginRight - valueWidth, yPos);
+      yPos += 14;
+      if (index === 2) yPos += 6;
+    });
+    doc.setLineWidth(0.5);
+    doc.line(marginLeft, yPos - 2, pageWidth - marginRight, yPos - 2);
+    yPos += 12;
+    doc.setFontSize(20);
+    doc.setFont('helvetica', 'bold');
+    yPos += 20;
+    doc.text('Financial Metrics', marginLeft, yPos);
+    yPos += 8;
+    yPos += 20;
+    const terms = state.loanData.terms;
+    const financialMetrics = [
+      { label: 'Profit:', value: `£${Math.round(terms.profit).toLocaleString()}` },
+      { label: 'ROI:', value: `${terms.roi.toFixed(2)}%` },
+      { label: 'Equity Required:', value: `£${Math.round(terms.equityRequired).toLocaleString()}` },
+      { label: 'Rent (pcm):', value: `£${Math.round(terms.estimatedRent).toLocaleString()}` },
+      { label: 'Unlevered Yield:', value: `${terms.unleveredYield.toFixed(2)}%` }
+    ];
+    doc.setFontSize(12);
+    financialMetrics.forEach(item => {
+      doc.setFont('helvetica', 'bold');
+      doc.text(item.label, marginLeft, yPos);
+      doc.setFont('helvetica', 'normal');
+      const valueWidth = doc.getTextWidth(item.value);
+      doc.text(item.value, pageWidth - marginRight - valueWidth, yPos);
+      yPos += 14;
+    });
+    doc.setLineWidth(0.5);
+    doc.line(marginLeft, yPos - 2, pageWidth - marginRight, yPos - 2);
+    yPos += 12;
+    doc.setFontSize(20);
+    doc.setFont('helvetica', 'bold');
+    yPos += 20;
+    doc.text('Loan Terms', marginLeft, yPos);
+    yPos += 8;
+    yPos += 20;
+    const loanTerms = [
+      { label: 'Purchase Loan:', value: `£${Math.round(terms.purchaseLoan).toLocaleString()}` },
+      { label: 'Build Loan:', value: `£${Math.round(terms.buildLoan).toLocaleString()}` },
+      { label: 'Arrangement Fee:', value: `£${Math.round(terms.arrangementFee).toLocaleString()}` },
+      { label: 'Net Loan:', value: `£${Math.round(terms.netLoan).toLocaleString()}` },
+      { label: 'Interest Rate:', value: `${(state.loanTerms.interestRate * 100).toFixed(2)}%` },
+      { label: 'Interest Per Month:', value: `£${Math.round(terms.interestPerMonth).toLocaleString()}` }
+    ];
+    doc.setFontSize(12);
+    loanTerms.forEach(item => {
+      doc.setFont('helvetica', 'bold');
+      doc.text(item.label, marginLeft, yPos);
+      doc.setFont('helvetica', 'normal');
+      const valueWidth = doc.getTextWidth(item.value);
+      doc.text(item.value, pageWidth - marginRight - valueWidth, yPos);
+      yPos += 14;
+    });
+    doc.setLineWidth(0.5);
+    doc.line(marginLeft, yPos - 2, pageWidth - marginRight, yPos - 2);
+    yPos += 12;
+    doc.setFontSize(10);
+    doc.setTextColor('#666666');
+    const disclaimerText = 'These terms are provided on an indicative basis only and remain subject to borrower, valuation and legal due diligence. Liquid+ operates outside the regulatory purview of the Financial Conduct Authority (FCA) and is not authorised to provide regulated lending facilities. The aforementioned terms apply exclusively to investment properties classified as unregulated assets which fall outside the scope of the Consumer Credit Act. This includes properties that are not occupied by the borrower or their family members, and are wholly or predominantly used for business purposes in accordance with FCA guidelines.';
+    const disclaimerLines = doc.splitTextToSize(disclaimerText, contentWidth);
+    doc.text(disclaimerLines, marginLeft, yPos);
+    yPos += disclaimerLines.length * 12;
+    if (yPos > pageHeight - marginBottom) {
+      console.warn('Content exceeds A4 page height. Consider reducing content or adding a second page.');
+    }
+    const filename = `HMO Conversion Terms - ${state.loanData.propertyInfo.address.replace(/\s/g, '')}.pdf`;
+    doc.save(filename);
+    showToast('HMO Conversion Terms downloaded successfully. Good luck!');
+  }
+
+  function createNewInvoice() {
+    showToast('Please refresh the page to create a new calculation');
+  }
+
+  function showToast(message) {
+    const toastsContainer = document.getElementById('toastsContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('data-v-b4dcfec5', '');
+    toast.textContent = message;
+    toastsContainer.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 500);
+    }, 3000);
+  }
+
+  const bgColors = {
+    'C7DBFE': '8FB9FC',
+    'DAD4FE': 'B5A7FD',
+    'F5D3FF': 'EDA8FF',
+    'FFD8D2': 'FFB4A8',
+    'FEF0D3': 'FFE1A8',
+    'C1E4DC': '84C8B8'
+  };
+
+  function updateFavicon(color) {
+    const favicon = document.querySelector('link[rel="icon"]');
+    const svgFavicon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <rect width='100' height='100' fill='${color}'/>
+      <path d='M35 50H65M50 35V65' stroke='black' stroke-width='10' stroke-linecap='round'/>
+    </svg>`;
+    const blob = new Blob([svgFavicon], { type: 'image/svg+xml' });
+    favicon.href = URL.createObjectURL(blob);
+  }
+
+  function setRandomPreviewBackground() {
+    const bgColorKeys = Object.keys(bgColors);
+    const randomIndex = Math.floor(Math.random() * bgColorKeys.length);
+    const selectedLightColor = bgColorKeys[randomIndex];
+    const selectedDarkColor = bgColors[selectedLightColor];
+    document.documentElement.style.setProperty('--preview-bg-color', '#' + selectedLightColor);
+    document.documentElement.style.setProperty('--invoice-bg-color', '#' + selectedDarkColor);
+    updateFavicon('#' + selectedDarkColor);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setRandomPreviewBackground();
+    addLineItem();
+    updatePreview();
+    document.getElementById('success-screen').style.display = 'none';
+    const totalBuildCostsInput = document.getElementById('totalBuildCosts');
+    totalBuildCostsInput.value = '';
+    totalBuildCostsInput.placeholder = 'Populate details below';
+    totalBuildCostsInput.style.color = 'var(--color-fg-tertiary)';
+    document.querySelectorAll('button[onclick^="predict"]').forEach(button => {
+      button.querySelector('.predict-text').textContent = 'Predict +';
+    });
+  });
+  </script>
+</body>
+</html>
